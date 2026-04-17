@@ -6,7 +6,7 @@
   <title>Automator</title>
   <meta
     name="description"
-    content="Download Automator, a Windows desktop tool for running automation workflows."
+    content="Automator is a Windows desktop automation subscription with monthly and yearly checkout, downloadable releases, and license-based activation."
   />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -14,73 +14,136 @@
   <div class="page-bg"></div>
 
   <header class="hero">
-    <div class="container">
+    <div class="container hero-layout">
       <div class="hero-copy">
-        <p class="eyebrow">Windows Automation Software</p>
+        <p class="eyebrow">Windows Desktop Software</p>
         <h1>Automator</h1>
         <p class="lead">
-          Automator is a Windows desktop tool designed to help users launch and manage
-          automation workflows with a cleaner, easier experience.
+          Subscription-based Windows automation software with hosted checkout,
+          license-backed activation, and ongoing release updates.
         </p>
 
         <div class="hero-actions">
-          <a class="button primary" href="https://github.com/Pbot22/Automator/releases/latest">
-            Download Latest Version
+          <a
+            class="button primary"
+            href="https://web-production-d343.up.railway.app/billing/stripe/checkout-link?price_id=price_1TNH9gEK2Lqw5xBLE3B7ol4A&billing_interval=monthly&plan_name=standard"
+          >
+            Start Monthly
           </a>
-          <a class="button secondary" href="#support">
-            Contact Support
+          <a
+            class="button primary alt"
+            href="https://web-production-d343.up.railway.app/billing/stripe/checkout-link?price_id=price_1TNH9gEK2Lqw5xBLsJIePhBr&billing_interval=yearly&plan_name=standard"
+          >
+            Start Yearly
+          </a>
+          <a class="button secondary" href="https://github.com/Pbot22/Automator/releases/latest">
+            Download Latest Build
           </a>
         </div>
 
         <p class="meta">
-          Available for Windows. New versions are delivered through the latest installer release.
+          Hosted checkout by Stripe. Activation and subscription status are validated by the Automator licensing backend.
         </p>
       </div>
+
+      <aside class="pricing-panel">
+        <p class="panel-label">Subscription Options</p>
+        <div class="price-card featured">
+          <div class="price-top">
+            <h2>Monthly</h2>
+            <p class="price-copy">Flexible month-to-month access.</p>
+          </div>
+          <a
+            class="button wide"
+            href="https://web-production-d343.up.railway.app/billing/stripe/checkout-link?price_id=price_1TNH9gEK2Lqw5xBLE3B7ol4A&billing_interval=monthly&plan_name=standard"
+          >
+            Choose Monthly
+          </a>
+        </div>
+        <div class="price-card">
+          <div class="price-top">
+            <h2>Yearly</h2>
+            <p class="price-copy">Longer-term access on the yearly plan.</p>
+          </div>
+          <a
+            class="button wide secondary"
+            href="https://web-production-d343.up.railway.app/billing/stripe/checkout-link?price_id=price_1TNH9gEK2Lqw5xBLsJIePhBr&billing_interval=yearly&plan_name=standard"
+          >
+            Choose Yearly
+          </a>
+        </div>
+      </aside>
     </div>
   </header>
 
   <main class="container">
     <section class="grid">
       <article class="card">
-        <h2>What It Does</h2>
+        <h2>What You Get</h2>
         <p>
-          Automator gives you a desktop interface for working with automation flows
-          without needing to manage everything manually.
+          A Windows desktop application, hosted subscription checkout, release downloads,
+          and license-based activation tied to your subscription status.
         </p>
       </article>
 
       <article class="card">
-        <h2>How To Download</h2>
+        <h2>How It Works</h2>
         <p>
-          Click the download button to open the latest release. From there, download
-          the newest Windows installer and run the setup file.
+          Subscribe through Stripe, download the current build, install the software,
+          and activate it using the license flow built into Automator.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Updates</h2>
+        <p>
+          New versions are distributed through GitHub Releases so customers can download
+          the latest installer or executable build when updates are published.
         </p>
       </article>
 
       <article class="card" id="support">
         <h2>Support</h2>
         <p>
-          Email:
-          <a href="mailto:you@example.com">you@example.com</a>
-        </p>
-      </article>
-
-      <article class="card">
-        <h2>Changelog</h2>
-        <p>
-          View release history and version notes on
+          Use the latest release page for version history and installation access:
           <a href="https://github.com/Pbot22/Automator/releases">GitHub Releases</a>.
         </p>
+        <p class="support-note">
+          Contact support through the product owner’s normal customer support channel.
+        </p>
       </article>
+    </section>
+
+    <section class="checkout-section">
+      <div class="checkout-card">
+        <p class="panel-label">Checkout</p>
+        <h2>Pick a plan and continue to Stripe</h2>
+        <p>
+          Both subscription options use the same hosted checkout flow and return to this site after payment.
+        </p>
+        <div class="checkout-actions">
+          <a
+            class="button primary"
+            href="https://web-production-d343.up.railway.app/billing/stripe/checkout-link?price_id=price_1TNH9gEK2Lqw5xBLE3B7ol4A&billing_interval=monthly&plan_name=standard"
+          >
+            Monthly Checkout
+          </a>
+          <a
+            class="button secondary"
+            href="https://web-production-d343.up.railway.app/billing/stripe/checkout-link?price_id=price_1TNH9gEK2Lqw5xBLsJIePhBr&billing_interval=yearly&plan_name=standard"
+          >
+            Yearly Checkout
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-inner">
       <p>Automator</p>
-      <p>Built for Windows users who want easier automation workflows.</p>
+      <p>Windows desktop automation software with hosted subscriptions and license-based activation.</p>
     </div>
   </footer>
 </body>
 </html>
-
