@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automator Success</title>
+  <meta
+    name="description"
+    content="Automator checkout success page for license activation and installer download."
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <main class="success-shell">
+    <section class="success-card">
+      <p class="eyebrow">Payment Complete</p>
+      <h1 class="success-title">Setting up your license</h1>
+      <p class="success-lead" id="status-message">
+        We are confirming your subscription and preparing your activation details.
+      </p>
+
+      <div class="status-pill" id="status-pill">Waiting for license</div>
+
+      <div class="license-panel" id="license-panel" hidden>
+        <div class="license-row">
+          <span class="license-label">License Key</span>
+          <code class="license-code" id="license-key">Preparing...</code>
+        </div>
+        <div class="license-actions">
+          <button class="button primary small-button" id="copy-license-button" type="button">
+            Copy License
+          </button>
+          <a class="button secondary small-button" id="manual-download-link" href="https://github.com/Pbot22/Automator/releases/latest">
+            Download Installer
+          </a>
+        </div>
+      </div>
+
+      <div class="success-grid">
+        <article class="card">
+          <h2>Next Step</h2>
+          <p>
+            Download the latest Automator build, launch it, and use the license key shown on this page in the activation flow.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Automatic Download</h2>
+          <p id="download-message">
+            When your license is ready, this page will automatically open your download link.
+          </p>
+        </article>
+      </div>
+
+      <div class="checkout-actions success-actions">
+        <a class="button secondary" href="index.html">Back to main site</a>
+        <a class="button secondary" href="https://github.com/Pbot22/Automator/releases/latest">View releases</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get("session_id") || "";
+      const statusMessage = document.getElementById("status-message");
+      const statusPill = document.getElementById("status-pill");
+      const licensePanel = document.getElementById("license-panel");
+      const licenseKey = document.getElementById("license-key");
+      const copyButton = document.getElementById("copy-license-button");
+      const manualDownloadLink = document.getElementById("manual-download-link");
+      const downloadMessage = document.getElementById("download-message");
+
+      let downloadStarted = false;
+      let pollAttempts = 0;
+      const maxPollAttempts = 18;
+
+      function setReadyState(summary) {
+        statusPill.textContent = "License ready";
+        statusPill.classList.add("ready");
+        statusMessage.textContent = summary.message || "Your license is ready.";
+        licensePanel.hidden = false;
+        licenseKey.textContent = summary.license_key || "";
+        manualDownloadLink.href = summary.download_url || manualDownloadLink.href;
+        downloadMessage.textContent =
+          "Your installer should begin opening automatically. If nothing happens, use the download button.";
+
+        if (!downloadStarted && summary.download_url) {
+          downloadStarted = true;
+          window.setTimeout(() => {
+            window.location.href = summary.download_url;
+          }, 1200);
+        }
+      }
+
+      function setPendingState(message) {
+        statusPill.textContent = "Preparing license";
+        statusPill.classList.remove("ready");
+        statusMessage.textContent = message || "Payment succeeded. We are still preparing your license.";
+      }
+
+      function setErrorState(message) {
+        statusPill.textContent = "Attention needed";
+        statusPill.classList.remove("ready");
+        statusMessage.textContent = message || "We could not load your license details yet.";
+        downloadMessage.textContent =
+          "You can still use the release page while we sort out the license lookup.";
+      }
+
+      async function fetchSummary() {
+        if (!sessionId) {
+          setErrorState("This success page is missing the Stripe session id.");
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            "https://web-production-d343.up.railway.app/billing/stripe/session-summary?session_id=" +
+              encodeURIComponent(sessionId),
+            { headers: { Accept: "application/json" } }
+          );
+
+          if (!response.ok) {
+            throw new Error("Summary request failed with status " + response.status);
+          }
+
+          const summary = await response.json();
+          manualDownloadLink.href = summary.download_url || manualDownloadLink.href;
+
+          if (summary.ready) {
+            setReadyState(summary);
+            return;
+          }
+
+          pollAttempts += 1;
+          setPendingState(summary.message);
+          if (pollAttempts < maxPollAttempts) {
+            window.setTimeout(fetchSummary, 2500);
+          } else {
+            setErrorState("Payment succeeded, but the license lookup timed out. Please wait a minute and refresh this page.");
+          }
+        } catch (error) {
+          pollAttempts += 1;
+          if (pollAttempts < maxPollAttempts) {
+            setPendingState("We are still checking your purchase. Please wait a moment.");
+            window.setTimeout(fetchSummary, 2500);
+            return;
+          }
+          setErrorState("We could not confirm your license automatically. Please refresh or contact support.");
+        }
+      }
+
+      copyButton.addEventListener("click", async () => {
+        const value = licenseKey.textContent.trim();
+        if (!value || value === "Preparing...") {
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(value);
+          copyButton.textContent = "Copied";
+          window.setTimeout(() => {
+            copyButton.textContent = "Copy License";
+          }, 1500);
+        } catch (error) {
+          copyButton.textContent = "Copy failed";
+          window.setTimeout(() => {
+            copyButton.textContent = "Copy License";
+          }, 1500);
+        }
+      });
+
+      fetchSummary();
+    })();
+  </script>
+</body>
+</html>
