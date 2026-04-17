@@ -29,13 +29,13 @@
           <code class="license-code" id="license-key">Preparing...</code>
         </div>
         <p class="license-help" id="license-help">
-          Copy this key before you leave the page. You will paste it into Automator when the app asks for activation.
+          Keep this as your backup key. The installer from this page will try to license the app automatically on this machine.
         </p>
         <div class="license-actions">
           <button class="button primary small-button" id="copy-license-button" type="button">
             Copy License
           </button>
-          <a class="button secondary small-button" id="manual-download-link" href="https://github.com/Pbot22/Automator/releases/latest">
+          <a class="button secondary small-button" id="manual-download-link" href="https://web-production-d343.up.railway.app/billing/stripe/download-installer">
             Download Installer
           </a>
         </div>
@@ -45,14 +45,14 @@
         <article class="card">
           <h2>Next Step</h2>
           <p>
-            Download the latest Automator build, launch it, and use the license key shown on this page in the activation flow.
+            Download the installer from this page and run it on the machine you want to license. The install flow will carry your purchase claim forward automatically.
           </p>
         </article>
 
         <article class="card">
           <h2>Automatic Download</h2>
           <p id="download-message">
-            When your license is ready, this page will automatically open your download link.
+            When your license is ready, this page will automatically download the installer that is tied to this purchase.
           </p>
         </article>
       </div>
@@ -88,7 +88,7 @@
         licenseKey.textContent = summary.license_key || "";
         manualDownloadLink.href = summary.download_url || manualDownloadLink.href;
         downloadMessage.textContent =
-          "Your installer page will open automatically in a few seconds. If nothing happens, use the download button.";
+          "Your installer download will start automatically in a few seconds. If it does not, use the download button.";
 
         if (!downloadStarted && summary.download_url) {
           downloadStarted = true;
@@ -103,7 +103,7 @@
         statusPill.classList.remove("ready");
         statusMessage.textContent = message || "Payment succeeded. We are still preparing your license.";
         downloadMessage.textContent =
-          "Please stay on this page while we confirm your purchase and prepare your activation details.";
+          "Please stay on this page while we confirm your purchase and prepare your installer handoff.";
       }
 
       function setErrorState(message) {
@@ -111,7 +111,7 @@
         statusPill.classList.remove("ready");
         statusMessage.textContent = message || "We could not load your license details yet.";
         downloadMessage.textContent =
-          "You can still use the release page while we sort out the license lookup.";
+          "You can still use your backup license key if needed while we sort out the automatic installer handoff.";
       }
 
       async function fetchSummary() {
@@ -165,7 +165,7 @@
         try {
           await navigator.clipboard.writeText(value);
           copyButton.textContent = "Copied";
-          statusMessage.textContent = "License copied. Your download page should open automatically in a few seconds.";
+          statusMessage.textContent = "License copied. Your installer download should begin automatically in a few seconds.";
           window.setTimeout(() => {
             copyButton.textContent = "Copy License";
           }, 1500);
