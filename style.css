@@ -1,17 +1,17 @@
 :root {
-  --bg: #11161c;
-  --bg-deep: #080c10;
-  --panel: #1a222c;
-  --panel-alt: #222d39;
-  --titlebar: #245bc2;
-  --titlebar-dark: #113b8f;
-  --text: #eef3f8;
-  --muted: #a8b6c6;
-  --accent: #5ec2a6;
-  --accent-active: #78d4bb;
-  --border: #304050;
-  --border-bright: #7f96ad;
-  --input: #0f141a;
+  --bg: #10151b;
+  --bg-deep: #070a0d;
+  --panel: #1b232d;
+  --panel-alt: #26313d;
+  --titlebar: #344556;
+  --titlebar-dark: #202c38;
+  --text: #f2f5f7;
+  --muted: #aeb8c2;
+  --accent: #d8953d;
+  --accent-active: #f0aa4a;
+  --border: #53606d;
+  --border-bright: #8795a3;
+  --input: #0b1015;
   --shadow: 8px 8px 0 rgba(0, 0, 0, 0.38);
 }
 
@@ -40,8 +40,8 @@ body {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 12% 10%, rgba(94, 194, 166, 0.14), transparent 28%),
-    radial-gradient(circle at 86% 18%, rgba(36, 91, 194, 0.22), transparent 26%),
+    radial-gradient(circle at 12% 10%, rgba(216, 149, 61, 0.13), transparent 28%),
+    radial-gradient(circle at 86% 18%, rgba(88, 107, 126, 0.28), transparent 26%),
     linear-gradient(135deg, transparent 0 48%, rgba(255, 255, 255, 0.035) 48% 52%, transparent 52% 100%);
   pointer-events: none;
 }
@@ -87,7 +87,7 @@ body {
   padding: 6px 8px;
   color: #fff;
   background: linear-gradient(180deg, var(--titlebar) 0%, var(--titlebar-dark) 100%);
-  border-bottom: 2px solid #061e56;
+  border-bottom: 2px solid #111820;
   font-weight: 700;
 }
 
@@ -172,11 +172,11 @@ h2 {
   display: inline-block;
   min-width: 176px;
   padding: 11px 16px;
-  color: #08110f;
+  color: #16100a;
   background: var(--accent);
-  border: 2px solid #9be4d0;
-  border-right-color: #2b7564;
-  border-bottom-color: #2b7564;
+  border: 2px solid #f2bf75;
+  border-right-color: #8a5b22;
+  border-bottom-color: #8a5b22;
   border-radius: 0;
   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.55), 3px 3px 0 rgba(0, 0, 0, 0.22);
   font-weight: 700;
@@ -227,7 +227,7 @@ h2 {
 
 .price-card.featured {
   border-color: var(--accent);
-  background: linear-gradient(180deg, #12231f 0%, var(--input) 100%);
+  background: linear-gradient(180deg, #2a2117 0%, var(--input) 100%);
 }
 
 .price-top {
