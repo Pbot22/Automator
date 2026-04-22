@@ -78,6 +78,18 @@ body::before {
   gap: 18px;
   color: var(--text);
   text-decoration: none;
+  outline: none;
+}
+
+.brand:focus,
+.brand:focus-visible,
+.brand-logo:focus,
+.brand-logo:focus-visible {
+  outline: none;
+}
+
+.brand:focus-visible .brand-logo {
+  box-shadow: 0 0 0 1px var(--gold-bright), 0 0 24px rgba(201, 167, 103, 0.28);
 }
 
 .brand-logo {
