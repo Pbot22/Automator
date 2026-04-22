@@ -6,135 +6,156 @@
   <title>Capital Automation</title>
   <meta
     name="description"
-    content="Automator is Windows desktop automation software distributed by direct download and activated with manually issued license keys."
+    content="Capital Automation is Windows desktop automation software distributed by direct download and activated with manually issued license keys."
   />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="page-bg"></div>
 
-  <header class="hero">
-    <div class="container hero-layout">
-      <div class="hero-copy">
-        <div class="window-titlebar">
-          <span class="window-title"><span class="window-icon"><span class="brand-sweep"></span></span>Capital Automation</span>
-          <span class="window-controls">
-            <span class="window-control">_</span>
-            <span class="window-control">[]</span>
-            <span class="window-control">X</span>
-          </span>
-        </div>
-        <div class="window-body">
-          <p class="eyebrow">Windows Desktop Software</p>
-          <h1>Capital Automation</h1>
-          <p class="lead">
-            Download the Windows app, install it, and activate it with a license key issued manually by the product owner.
-          </p>
+  <header class="site-shell">
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Capital Automation home">
+        <img src="capital_automation_logo_web.png" alt="" class="brand-logo" />
+        <span class="brand-wordmark">
+          <span>Capital</span>
+          <span>Automation</span>
+        </span>
+      </a>
 
-          <div class="hero-actions">
-            <a
-              class="button primary"
-              href="https://github.com/Pbot22/Automator/releases/download/v0.1.8/Automator-Setup-v0.1.8.exe"
-            >
-              Download Automator
-            </a>
-            <a class="button secondary" href="https://github.com/Pbot22/Automator/releases/latest">
-              View Latest Release
-            </a>
-          </div>
-
-          <p class="meta">
-            Activation keys are not generated automatically. Each key is manually created and tied to the machine it is issued for.
-          </p>
-        </div>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#download" class="active">Download</a>
+        <a href="#activation">Activation</a>
+        <a href="#support">Support</a>
+        <a href="https://github.com/Pbot22/Automator/releases">Changelog</a>
       </div>
 
-      <aside class="pricing-panel">
-        <p class="panel-label">Manual Activation</p>
-        <div class="price-card featured">
-          <div class="price-top">
-            <h2>Key Required</h2>
-            <p class="price-copy">
-              Automator will ask for an activation key the first time it opens on a new machine.
-            </p>
-          </div>
-          <a
-            class="button wide"
-            href="https://github.com/Pbot22/Automator/releases/download/v0.1.8/Automator-Setup-v0.1.8.exe"
-          >
-            Download Installer
-          </a>
-        </div>
-        <div class="price-card">
-          <div class="price-top">
-            <h2>Machine Locked</h2>
-            <p class="price-copy">
-              Send the Machine ID shown in Automator to request a license key for that computer.
-            </p>
-          </div>
-        </div>
-      </aside>
-    </div>
+      <div class="release-badge">
+        <span>Current Release</span>
+        <strong>v0.1.8</strong>
+      </div>
+    </nav>
   </header>
 
-  <main class="container">
-    <section class="grid">
-      <article class="card">
-        <h2>Download</h2>
-        <p>
-          Use the download button to get the latest Windows installer. Windows may show a warning for unsigned software.
+  <main class="site-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Windows automation. Built for professionals.</p>
+        <h1>Capital Automation</h1>
+        <p class="lead">
+          A refined Windows desktop automation tool for running multiple browser sessions with isolated control,
+          live output, manual activation, and predictable release updates.
         </p>
-      </article>
 
-      <article class="card">
-        <h2>Install</h2>
-        <p>
-          Run the installer, open Automator, and wait for the activation window to appear.
-        </p>
-      </article>
-
-      <article class="card">
-        <h2>Send Machine ID</h2>
-        <p>
-          Copy the Machine ID from the activation window and send it to the product owner. The key must be generated for that exact machine.
-        </p>
-      </article>
-
-      <article class="card" id="support">
-        <h2>Activate</h2>
-        <p>
-          Paste the activation key you receive into Automator and click Activate. If the key matches the machine, the app will unlock.
-        </p>
-      </article>
-    </section>
-
-    <section class="checkout-section">
-      <div class="checkout-card">
-        <p class="panel-label">Current Release</p>
-        <h2>Automator v0.1.8</h2>
-        <p>
-          This public download requires a manually issued activation key. Keys are created locally by the product owner and are not sold or generated automatically on this site.
-        </p>
-        <div class="checkout-actions">
+        <div class="hero-actions" id="download">
           <a
             class="button primary"
             href="https://github.com/Pbot22/Automator/releases/download/v0.1.8/Automator-Setup-v0.1.8.exe"
           >
-            Download v0.1.8 Installer
+            <span class="button-icon">DL</span>
+            Download Automator
+            <small>Windows Installer (.exe)</small>
           </a>
-          <a class="button secondary" href="https://github.com/Pbot22/Automator/releases">
-            Release History
+          <a class="button secondary" href="https://github.com/Pbot22/Automator/releases/latest">
+            <span class="button-icon">RN</span>
+            View Release Notes
+            <small>See what's new</small>
           </a>
+        </div>
+
+        <div class="trust-row" aria-label="Product highlights">
+          <div>
+            <span class="line-icon">S</span>
+            <strong>Secure Licensing</strong>
+            <p>Manually issued keys for controlled access.</p>
+          </div>
+          <div>
+            <span class="line-icon">K</span>
+            <strong>Manual Key Required</strong>
+            <p>Activation is tied to the user's machine.</p>
+          </div>
+          <div>
+            <span class="line-icon">W</span>
+            <strong>Windows 10 / 11</strong>
+            <p>Designed for modern 64-bit Windows machines.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="activation-panel" id="activation">
+        <div class="panel-heading">
+          <span class="key-mark">K</span>
+          <h2>Manual Key Required</h2>
+        </div>
+        <p>
+          Capital Automation uses manually generated activation keys to unlock full functionality.
+          The internet is only required for downloads and update checks.
+        </p>
+
+        <ol class="activation-steps">
+          <li><span>1</span>Download and install Automator.</li>
+          <li><span>2</span>Open the app and copy your Machine ID.</li>
+          <li><span>3</span>Send the Machine ID to request a key.</li>
+          <li><span>4</span>Enter the key to activate the app.</li>
+        </ol>
+
+        <div class="machine-card">
+          <span>Your Machine ID</span>
+          <code>Shown inside Automator</code>
+          <p>Activation is unique to each device.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="feature-grid">
+      <article class="feature-card">
+        <span class="feature-icon">MB</span>
+        <h2>Multi-Browser Automation</h2>
+        <p>Run multiple browser sessions simultaneously while keeping each session isolated.</p>
+        <a href="#download">Learn more -&gt;</a>
+      </article>
+
+      <article class="feature-card">
+        <span class="feature-icon">&gt;_</span>
+        <h2>Live Output & Control</h2>
+        <p>See real-time logs and control every automation from the desktop dashboard.</p>
+        <a href="#download">Learn more -&gt;</a>
+      </article>
+
+      <article class="feature-card">
+        <span class="feature-icon">SP</span>
+        <h2>Secure & Private</h2>
+        <p>Manual key activation keeps access controlled without adding unnecessary account friction.</p>
+        <a href="#activation">Learn more -&gt;</a>
+      </article>
+    </section>
+
+    <section class="release-section" id="support">
+      <div class="release-card">
+        <div>
+          <p class="eyebrow">Current Release</p>
+          <h2>Automator v0.1.8</h2>
+          <p>
+            This public download requires a manually issued activation key. Keys are created locally by the product owner
+            and are not sold or generated automatically on this site.
+          </p>
+        </div>
+        <div class="version-lockup">
+          <span>v0.1.8</span>
+          <strong>Latest</strong>
+          <a href="https://github.com/Pbot22/Automator/releases">View full changelog -&gt;</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>Capital Automation</p>
-      <p>Direct-download Windows software with manually issued activation keys.</p>
-    </div>
+  <footer class="footer site-shell">
+    <p>Copyright 2026 Capital Automation. All rights reserved.</p>
+    <nav aria-label="Footer links">
+      <a href="#activation">Activation</a>
+      <a href="#support">Support</a>
+      <a href="https://github.com/Pbot22/Automator/releases">Releases</a>
+    </nav>
   </footer>
 </body>
 </html>
