@@ -1,18 +1,19 @@
 :root {
-  --bg: #10151b;
-  --bg-deep: #070a0d;
-  --panel: #1b232d;
-  --panel-alt: #26313d;
-  --titlebar: #344556;
-  --titlebar-dark: #202c38;
-  --text: #f2f5f7;
-  --muted: #aeb8c2;
-  --accent: #d8953d;
-  --accent-active: #f0aa4a;
-  --border: #53606d;
-  --border-bright: #8795a3;
-  --input: #0b1015;
-  --shadow: 8px 8px 0 rgba(0, 0, 0, 0.38);
+  --bg: #090a0c;
+  --bg-deep: #030405;
+  --panel: #121417;
+  --panel-alt: #1a1d21;
+  --titlebar: #181b20;
+  --titlebar-dark: #0d0f12;
+  --text: #f4efe6;
+  --muted: #b6aea1;
+  --accent: #c8a35d;
+  --accent-active: #e1bd73;
+  --border: #5d503c;
+  --border-bright: #d4b978;
+  --input: #07090b;
+  --shadow: 10px 12px 0 rgba(0, 0, 0, 0.42);
+  --hairline: rgba(212, 185, 120, 0.26);
 }
 
 * {
@@ -28,11 +29,12 @@ body {
   min-height: 100vh;
   color: var(--text);
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(180deg, #151d26 0%, var(--bg-deep) 100%);
-  background-size: 24px 24px, 24px 24px, auto;
-  font-family: Tahoma, "MS Sans Serif", "Segoe UI", sans-serif;
+    linear-gradient(90deg, rgba(200, 163, 93, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(200, 163, 93, 0.025) 1px, transparent 1px),
+    radial-gradient(circle at 12% 8%, rgba(200, 163, 93, 0.12), transparent 28%),
+    linear-gradient(180deg, #111318 0%, var(--bg-deep) 100%);
+  background-size: 30px 30px, 30px 30px, auto, auto;
+  font-family: "Segoe UI", Tahoma, "MS Sans Serif", sans-serif;
   font-size: 14px;
 }
 
@@ -40,9 +42,8 @@ body {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 12% 10%, rgba(216, 149, 61, 0.13), transparent 28%),
-    radial-gradient(circle at 86% 18%, rgba(88, 107, 126, 0.28), transparent 26%),
-    linear-gradient(135deg, transparent 0 48%, rgba(255, 255, 255, 0.035) 48% 52%, transparent 52% 100%);
+    linear-gradient(115deg, transparent 0 53%, rgba(200, 163, 93, 0.1) 53% 53.35%, transparent 53.35% 100%),
+    radial-gradient(circle at 84% 16%, rgba(244, 239, 230, 0.06), transparent 28%);
   pointer-events: none;
 }
 
@@ -70,7 +71,8 @@ body {
 .card,
 .success-card {
   background: var(--panel);
-  border: 2px solid var(--border);
+  border: 1px solid var(--border);
+  outline: 1px solid rgba(244, 239, 230, 0.05);
   box-shadow: var(--shadow);
 }
 
@@ -83,11 +85,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 34px;
-  padding: 6px 8px;
-  color: #fff;
+  min-height: 38px;
+  padding: 7px 10px;
+  color: var(--text);
   background: linear-gradient(180deg, var(--titlebar) 0%, var(--titlebar-dark) 100%);
-  border-bottom: 2px solid #111820;
+  border-bottom: 1px solid var(--hairline);
   font-weight: 700;
 }
 
@@ -97,15 +99,54 @@ body {
   gap: 8px;
 }
 
+.brand-mark,
 .window-icon {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  background:
-    linear-gradient(90deg, #f04747 0 50%, #24b25e 50%),
-    linear-gradient(#ffd64a 0 50%, #3488e8 50%);
-  background-blend-mode: multiply;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  width: 36px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+  position: relative;
+  color: var(--text);
+  background: #07080a;
+  border: 1px solid var(--border-bright);
+  box-shadow: inset 0 0 0 1px rgba(244, 239, 230, 0.08), 0 0 22px rgba(200, 163, 93, 0.12);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0;
+}
+
+.brand-mark::before,
+.window-icon::before {
+  content: "C";
+  position: absolute;
+  left: 7px;
+  top: 4px;
+  color: var(--text);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.brand-mark::after,
+.window-icon::after {
+  content: "A";
+  position: absolute;
+  right: 6px;
+  bottom: 4px;
+  color: var(--accent-active);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.brand-sweep {
+  position: absolute;
+  width: 24px;
+  height: 1px;
+  left: 6px;
+  top: 22px;
+  background: var(--accent);
+  transform: rotate(-16deg);
+  box-shadow: 0 0 8px rgba(200, 163, 93, 0.45);
 }
 
 .window-controls {
@@ -118,10 +159,10 @@ body {
   height: 18px;
   display: grid;
   place-items: center;
-  color: #0b1116;
-  background: #d9e3ef;
-  border: 1px solid #fff;
-  box-shadow: inset -1px -1px 0 #6b7785, inset 1px 1px 0 #ffffff;
+  color: var(--muted);
+  background: #0a0c0f;
+  border: 1px solid var(--border);
+  box-shadow: inset 1px 1px 0 rgba(244, 239, 230, 0.08);
   font-size: 11px;
   line-height: 1;
 }
@@ -142,10 +183,11 @@ body {
 
 h1 {
   margin: 0;
-  color: #ffffff;
-  font-size: clamp(2.7rem, 7vw, 5.6rem);
-  line-height: 0.92;
-  letter-spacing: -0.05em;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.7rem, 7vw, 5.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
 }
 
 h2 {
@@ -172,13 +214,11 @@ h2 {
   display: inline-block;
   min-width: 176px;
   padding: 11px 16px;
-  color: #16100a;
-  background: var(--accent);
-  border: 2px solid #f2bf75;
-  border-right-color: #8a5b22;
-  border-bottom-color: #8a5b22;
+  color: #08090a;
+  background: linear-gradient(180deg, var(--accent-active) 0%, var(--accent) 100%);
+  border: 1px solid var(--border-bright);
   border-radius: 0;
-  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.55), 3px 3px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.25), 3px 3px 0 rgba(0, 0, 0, 0.34);
   font-weight: 700;
   text-align: center;
   text-decoration: none;
@@ -195,10 +235,8 @@ h2 {
 
 .button.secondary {
   color: var(--text);
-  background: var(--panel-alt);
-  border-color: var(--border-bright);
-  border-right-color: #111820;
-  border-bottom-color: #111820;
+  background: #0c0f12;
+  border-color: var(--border);
 }
 
 .button.wide {
@@ -222,12 +260,12 @@ h2 {
   margin-top: 12px;
   padding: 16px;
   background: var(--input);
-  border: 2px solid var(--border);
+  border: 1px solid var(--border);
 }
 
 .price-card.featured {
   border-color: var(--accent);
-  background: linear-gradient(180deg, #2a2117 0%, var(--input) 100%);
+  background: linear-gradient(180deg, #1b1711 0%, var(--input) 100%);
 }
 
 .price-top {
@@ -297,7 +335,7 @@ h2 {
 
 .footer {
   padding: 16px 0 28px;
-  border-top: 2px solid var(--border);
+  border-top: 1px solid var(--border);
 }
 
 .footer-inner {
@@ -341,7 +379,7 @@ h2 {
   padding: 8px 12px;
   color: var(--accent-active);
   background: var(--input);
-  border: 2px solid var(--accent);
+  border: 1px solid var(--accent);
   font-weight: 700;
 }
 
